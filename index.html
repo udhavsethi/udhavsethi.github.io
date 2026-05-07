@@ -1,62 +1,610 @@
-<!DOCTYPE HTML>
-<!--
-	Aerial by HTML5 UP
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
-	<head>
-		<title>Home &nbsp;&bull;&nbsp; Udhav Sethi</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-		<link class="avatar" rel="icon" href="assets/css/images/avatar.jpg">
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-		<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
-	</head>
-	<body class="loading">
-		<div id="wrapper">
-			<div id="bg"><div class="subdue"></div></div>
-			<div id="overlay"></div>
-			<div id="main">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Udhav Sethi</title>
+  <meta name="description" content="Udhav Sethi — AI/ML Engineer. Building intelligent systems at the intersection of AI and scalable infrastructure." />
+  <link rel="icon" href="assets/css/images/avatar.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset ── */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-				<!-- Header -->
-					<header id="header">
-						<span class="avatar"><img src="assets/css/images/avatar.jpg" alt="" /></span>
-						<h1>Udhav Sethi</h1>
-						<p>CS Graduate Student, University of Waterloo &nbsp;&bull;&nbsp; CS Graduate, IIT Hyderabad</p>
-						<nav>
-							<ul>
-								<li><a target="_blank" href="https://www.linkedin.com/in/udhavsethi/" class="icon fa-linkedin"><span class="label">Linkedin</span></a></li>
-								<li><a target="_blank" href="https://github.com/udhavsethi" class="icon fa-github"><span class="label">Github</span></a></li>
-								<li><a target="_blank" href="https://stackoverflow.com/users/8743880/udhavsethi" class="icon fa-stack-overflow"><span class="label">Stack Overflow</span></a></li>
-								<li><a target="_blank" href="https://www.behance.net/sethiudhavef1f" class="icon fa-behance"><span class="label">Behance</span></a></li>
-								<li><a target="_blank" href="https://twitter.com/udhavsethi" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-								<li><a target="_blank" href="https://www.instagram.com/udhavsethi/" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-								<li><a target="_blank" href="https://www.facebook.com/udhav.sethi" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-								<li><a target="_blank" href="https://mail.google.com/mail/?view=cm&fs=1&to=sethiudhav@gmail.com&su=Hi! I just checked out your website.&body=" class="icon fa-envelope-o"><span class="label">Email</span></a></li>
-							</ul>
-						</nav>
-					</header>
+    /* ── Variables ── */
+    :root {
+      --bg: #0a192f;
+      --bg-light: #112240;
+      --bg-lighter: #1d3461;
+      --text: #ccd6f6;
+      --text-dim: #8892b0;
+      --accent: #64ffda;
+      --accent-tint: rgba(100, 255, 218, 0.1);
+      --white: #e6f1ff;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+      --nav-height: 70px;
+      --max-width: 1000px;
+      --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    }
 
-			</div>
-		</div>
-		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-		<script>
-			window.onload = function() { document.body.className = ''; }
-			window.ontouchmove = function() { return false; }
-			window.onorientationchange = function() { document.body.scrollTop = 0; }
-		</script>
+    html { scroll-behavior: smooth; scrollbar-color: var(--bg-lighter) var(--bg); }
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text-dim);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
 
-		<script>
-			  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+    ::selection { background: var(--accent-tint); color: var(--accent); }
 
-			  ga('create', 'UA-69465765-2', 'auto');
-			  ga('send', 'pageview');
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      height: var(--nav-height);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 50px;
+      background: rgba(10, 25, 47, 0.85);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      transition: var(--transition);
+    }
+    nav .logo a {
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 18px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    nav .nav-links { display: flex; align-items: center; gap: 30px; list-style: none; }
+    nav .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      transition: var(--transition);
+    }
+    nav .nav-links a:hover { color: var(--accent); }
+    nav .nav-links .nav-number { color: var(--accent); margin-right: 5px; }
 
-		</script>
-	</body>
+    /* Hamburger */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; z-index: 200; background: none; border: none; padding: 5px; }
+    .hamburger span { display: block; width: 28px; height: 2px; background: var(--accent); transition: var(--transition); }
+    .mobile-nav { display: none; }
+
+    /* ── Main Sections ── */
+    main { padding: 0 150px; }
+    section { max-width: var(--max-width); margin: 0 auto; padding: 100px 0; }
+
+    .section-heading {
+      display: flex; align-items: center;
+      font-size: 26px; font-weight: 600; color: var(--white);
+      margin-bottom: 40px;
+      white-space: nowrap;
+    }
+    .section-heading .num {
+      font-family: var(--font-mono);
+      font-size: 20px;
+      color: var(--accent);
+      margin-right: 10px;
+      font-weight: 400;
+    }
+    .section-heading::after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 300px;
+      margin-left: 20px;
+      background: var(--bg-lighter);
+    }
+
+    /* ── Hero ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: var(--nav-height);
+    }
+    #hero .greeting {
+      font-family: var(--font-mono);
+      color: var(--accent);
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+    #hero h1 {
+      font-size: clamp(40px, 8vw, 72px);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+    #hero h2 {
+      font-size: clamp(30px, 5vw, 56px);
+      font-weight: 600;
+      color: var(--text-dim);
+      line-height: 1.1;
+      margin-bottom: 30px;
+    }
+    #hero p {
+      max-width: 540px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    .hero-cta {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 16px 28px;
+      border: 1px solid var(--accent);
+      border-radius: 4px;
+      color: var(--accent);
+      font-family: var(--font-mono);
+      font-size: 14px;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .hero-cta:hover { background: var(--accent-tint); }
+
+    /* ── Experience ── */
+    .exp-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 20px;
+      margin-bottom: 40px;
+      padding: 25px;
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+    .exp-item:hover { background: var(--accent-tint); }
+    .exp-date {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-dim);
+      padding-top: 4px;
+      white-space: nowrap;
+    }
+    .exp-content h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .exp-content h3 a {
+      color: var(--white);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    .exp-content h3 a:hover { color: var(--accent); }
+    .exp-content .exp-title {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .exp-content p { font-size: 15px; line-height: 1.6; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; list-style: none; }
+    .tag-list li {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent);
+      background: var(--accent-tint);
+      padding: 4px 12px;
+      border-radius: 20px;
+    }
+
+    /* ── Publications ── */
+    .pub-item {
+      padding: 25px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      transition: var(--transition);
+    }
+    .pub-item:hover { background: var(--accent-tint); }
+    .pub-item h3 {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+    .pub-item h3 a { color: var(--white); text-decoration: none; }
+    .pub-item h3 a:hover { color: var(--accent); }
+    .pub-authors {
+      font-size: 14px;
+      color: var(--text-dim);
+      margin-bottom: 4px;
+    }
+    .pub-venue {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--accent);
+    }
+
+    /* ── Education ── */
+    .edu-item {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 20px;
+      margin-bottom: 30px;
+      padding: 20px 25px;
+      border-radius: 8px;
+      transition: var(--transition);
+    }
+    .edu-item:hover { background: var(--accent-tint); }
+    .edu-date {
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-dim);
+      padding-top: 4px;
+    }
+    .edu-content h3 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 4px;
+    }
+    .edu-content .edu-degree {
+      font-size: 15px;
+      color: var(--text-dim);
+    }
+    .edu-content .edu-note {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--accent);
+      margin-top: 4px;
+    }
+
+    /* ── Social Sidebar ── */
+    .social-side {
+      position: fixed;
+      bottom: 0;
+      left: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+      z-index: 10;
+    }
+    .social-side::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 90px;
+      background: var(--text-dim);
+    }
+    .social-side a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 20px;
+      transition: var(--transition);
+    }
+    .social-side a:hover { color: var(--accent); transform: translateY(-3px); }
+
+    .email-side {
+      position: fixed;
+      bottom: 0;
+      right: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 10;
+    }
+    .email-side a {
+      writing-mode: vertical-rl;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      color: var(--text-dim);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      transition: var(--transition);
+      margin-bottom: 20px;
+    }
+    .email-side a:hover { color: var(--accent); transform: translateY(-3px); }
+    .email-side::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 90px;
+      background: var(--text-dim);
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+    footer a { color: var(--text-dim); text-decoration: none; }
+    footer a:hover { color: var(--accent); }
+    .footer-social { display: none; }
+
+    /* ── SVG Icons ── */
+    .icon-svg {
+      width: 20px;
+      height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .icon-svg.large { width: 36px; height: 36px; stroke-width: 1.5; }
+
+    /* ── Animations ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── Responsive ── */
+    @media (max-width: 1080px) {
+      main { padding: 0 100px; }
+    }
+    @media (max-width: 768px) {
+      main { padding: 0 25px; }
+      nav { padding: 0 25px; }
+      section { padding: 60px 0; }
+      .section-heading { font-size: 22px; }
+      .section-heading::after { width: 100%; }
+
+      nav .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .mobile-nav {
+        display: none;
+        position: fixed; top: 0; right: 0; bottom: 0;
+        width: min(75vw, 400px);
+        background: var(--bg-light);
+        z-index: 150;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+      }
+      .mobile-nav.open { display: flex; }
+      .mobile-nav a {
+        color: var(--text);
+        text-decoration: none;
+        font-family: var(--font-mono);
+        font-size: 16px;
+      }
+      .mobile-nav .nav-number { color: var(--accent); display: block; font-size: 14px; margin-bottom: 5px; }
+      .mobile-overlay {
+        display: none;
+        position: fixed; inset: 0;
+        background: rgba(10, 25, 47, 0.7);
+        z-index: 140;
+      }
+      .mobile-overlay.open { display: block; }
+
+      .exp-item { grid-template-columns: 1fr; gap: 5px; }
+      .exp-date { padding-top: 0; }
+      .edu-item { grid-template-columns: 1fr; gap: 5px; }
+      .edu-date { padding-top: 0; }
+      .social-side, .email-side { display: none; }
+      .footer-social { display: flex; justify-content: center; gap: 20px; margin-bottom: 20px; }
+      .footer-social a { color: var(--text-dim); font-size: 20px; text-decoration: none; }
+      .footer-social a:hover { color: var(--accent); }
+    }
+    @media (max-width: 480px) {
+      #hero h1 { font-size: 36px; }
+      #hero h2 { font-size: 28px; }
+      .skills-list { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav>
+  <div class="logo"><a href="#">US</a></div>
+  <ul class="nav-links">
+    <li><a href="#experience"><span class="nav-number">01.</span>Experience</a></li>
+    <li><a href="#education"><span class="nav-number">02.</span>Education</a></li>
+    <li><a href="#publications"><span class="nav-number">03.</span>Publications</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-overlay" onclick="toggleMenu()"></div>
+<div class="mobile-nav">
+  <a href="#experience" onclick="toggleMenu()"><span class="nav-number">01.</span>Experience</a>
+  <a href="#education" onclick="toggleMenu()"><span class="nav-number">02.</span>Education</a>
+  <a href="#publications" onclick="toggleMenu()"><span class="nav-number">03.</span>Publications</a>
+</div>
+
+<!-- ── Social Sidebar ── -->
+<div class="social-side">
+  <a href="https://github.com/udhavsethi" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+  </a>
+  <a href="https://www.linkedin.com/in/udhavsethi/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+  </a>
+  <a href="https://x.com/udhavsethi" target="_blank" rel="noopener noreferrer" aria-label="X / Twitter">
+    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+  </a>
+  <a href="https://scholar.google.com/citations?user=udhavsethi" target="_blank" rel="noopener noreferrer" aria-label="Google Scholar">
+    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5l4.838 3.94A8 8 0 0 1 12 9a8 8 0 0 1 7.162 4.44L24 9.5z" fill="currentColor" stroke="none"></path></svg>
+  </a>
+  <a href="https://stackoverflow.com/users/8743880/udhavsethi" target="_blank" rel="noopener noreferrer" aria-label="Stack Overflow">
+    <svg class="icon-svg" viewBox="0 0 24 24"><path d="M15.725 0l-1.72 1.277 6.39 8.588 1.716-1.277L15.725 0zm-3.94 3.418l-1.369 1.644 8.225 6.85 1.369-1.644-8.225-6.85zm-3.15 4.465l-.905 1.94 9.702 4.517.904-1.94-9.701-4.517zm-1.85 4.86l-.44 2.093 10.473 2.201.44-2.092-10.473-2.203zM1.89 15.47V24h19.19v-8.53h-2.133v6.397H4.021v-6.396H1.89zm4.265 2.254v2.133h10.66v-2.133H6.154z" fill="currentColor" stroke="none"></path></svg>
+  </a>
+  <a href="https://www.instagram.com/udhavsethi/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+    <svg class="icon-svg" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+  </a>
+</div>
+
+<!-- ── Email Sidebar ── -->
+<div class="email-side">
+  <a href="mailto:sethiudhav@gmail.com">sethiudhav@gmail.com</a>
+</div>
+
+<!-- ── Main Content ── -->
+<main>
+
+  <!-- Hero -->
+  <section id="hero">
+    <p class="greeting fade-up">Hi, my name is</p>
+    <h1 class="fade-up">Udhav Sethi.</h1>
+    <h2 class="fade-up">I build intelligent systems.</h2>
+    <p class="fade-up">
+      AI/ML engineer specializing in LLMs, agentic systems,
+      and scalable infrastructure.
+    </p>
+    <a class="hero-cta fade-up" href="mailto:sethiudhav@gmail.com">Get In Touch</a>
+  </section>
+
+  <!-- Experience -->
+  <section id="experience">
+    <h2 class="section-heading fade-up"><span class="num">01.</span> Where I've Worked</h2>
+
+    <div class="exp-item fade-up">
+      <div class="exp-date">2022 — 2025</div>
+      <div class="exp-content">
+        <h3><a href="https://www.soundhound.com/" target="_blank" rel="noopener">SoundHound AI</a></h3>
+        <div class="exp-title">Senior Machine Learning Scientist</div>
+        <p>Voice AI, LLMs and production Agentic Systems</p>
+      </div>
+    </div>
+
+    <div class="exp-item fade-up">
+      <div class="exp-date">2019 — 2021</div>
+      <div class="exp-content">
+        <h3><a href="https://uwaterloo.ca/" target="_blank" rel="noopener">University of Waterloo</a></h3>
+        <div class="exp-title">Graduate Researcher & Teaching Assistant</div>
+        <p>Energy-Aware Scheduling in Transactional Database Systems using Reinforcement Learning</p>
+      </div>
+    </div>
+
+    <div class="exp-item fade-up">
+      <div class="exp-date">2018 — 2019</div>
+      <div class="exp-content">
+        <h3><a href="https://www.instartlogic.com/" target="_blank" rel="noopener">Instart Logic</a></h3>
+        <div class="exp-title">Member of Technical Staff</div>
+        <p>Highly Available & Scalable Distributed Systems</p>
+      </div>
+    </div>
+
+    <div class="exp-item fade-up">
+      <div class="exp-date">2017 — 2018</div>
+      <div class="exp-content">
+        <h3><a href="https://soroco.com/" target="_blank" rel="noopener">Soroco</a></h3>
+        <div class="exp-title">Software Engineer</div>
+        <p>AI Automation Workflows</p>
+      </div>
+    </div>
+
+    <div class="exp-item fade-up">
+      <div class="exp-date">2016 — 2017</div>
+      <div class="exp-content">
+        <h3><a href="https://www.instartlogic.com/" target="_blank" rel="noopener">Instart Logic</a></h3>
+        <div class="exp-title">Member of Technical Staff</div>
+        <p>CDN Performance & Reliability Optimization</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <h2 class="section-heading fade-up"><span class="num">02.</span> Where I've Studied</h2>
+
+    <div class="edu-item fade-up">
+      <div class="edu-date">2019 — 2021</div>
+      <div class="edu-content">
+        <h3>University of Waterloo</h3>
+        <p class="edu-degree">Master of Mathematics, Computer Science</p>
+        <p class="edu-note">International Master's Award of Excellence</p>
+      </div>
+    </div>
+
+    <div class="edu-item fade-up">
+      <div class="edu-date">2012 — 2016</div>
+      <div class="edu-content">
+        <h3>Indian Institute of Technology, Hyderabad</h3>
+        <p class="edu-degree">Bachelor of Technology, Computer Science and Engineering</p>
+        <p class="edu-note">Minor in Entrepreneurship / Entrepreneurial Studies</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section id="publications">
+    <h2 class="section-heading fade-up"><span class="num">03.</span> Publications</h2>
+
+    <div class="pub-item fade-up">
+      <h3>Advancements in Oncology with Artificial Intelligence — A Review Article</h3>
+      <p class="pub-authors">N. Vobugari, V. Raja, <strong>U. Sethi</strong>, et al.</p>
+      <span class="pub-venue">Cancers · 2022</span>
+    </div>
+
+    <div class="pub-item fade-up">
+      <h3>Semantic Search for Background Linking in News Articles</h3>
+      <p class="pub-authors"><strong>U. Sethi</strong>, A.A. Deshmukh</p>
+      <span class="pub-venue">TREC · 2021</span>
+    </div>
+
+    <div class="pub-item fade-up">
+      <h3>Learning Energy-Aware Transaction Scheduling in Database Systems</h3>
+      <p class="pub-authors"><strong>U. Sethi</strong>, K. Salem</p>
+      <span class="pub-venue">University of Waterloo · 2021</span>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" style="text-align: center; max-width: 600px;">
+    <h2 class="fade-up" style="font-size: 50px; font-weight: 700; color: var(--white); margin-bottom: 40px;">Get In Touch</h2>
+    <a class="hero-cta fade-up" href="mailto:sethiudhav@gmail.com">Say Hello</a>
+  </section>
+
+</main>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="footer-social">
+    <a href="https://github.com/udhavsethi" target="_blank" rel="noopener" aria-label="GitHub">
+      <svg class="icon-svg" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+    </a>
+    <a href="https://www.linkedin.com/in/udhavsethi/" target="_blank" rel="noopener" aria-label="LinkedIn">
+      <svg class="icon-svg" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+    </a>
+    <a href="https://x.com/udhavsethi" target="_blank" rel="noopener" aria-label="X / Twitter">
+      <svg class="icon-svg" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
+    </a>
+    <a href="https://www.instagram.com/udhavsethi/" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg class="icon-svg" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+    </a>
+  </div>
+  <p>Built by Udhav Sethi</p>
+</footer>
+
+<!-- ── Scripts ── -->
+<script>
+  // Mobile menu toggle
+  function toggleMenu() {
+    document.querySelector('.mobile-nav').classList.toggle('open');
+    document.querySelector('.mobile-overlay').classList.toggle('open');
+  }
+
+  // Scroll fade-in animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
 </html>
